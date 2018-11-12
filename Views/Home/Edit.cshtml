@@ -1,0 +1,62 @@
+@using CRUDelicious.ViewModels
+@model DishViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-compatible' content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Edit Dish</title>
+</head>
+<style>
+.col-sm{
+    background-color: green;
+    border: solid 1px darkgray;
+    border-radius: 15px;
+    padding:15px;
+    color: wheat;
+    margin: 10px;
+    min-height: 300px;
+}
+</style>
+
+<body>
+    <div id="container">
+        <h5>Edit Your Dish</h5>
+        <a href="/">Home</a>
+        <form asp-action="Update" asp-controller-for="Home" method="POST">
+        <div class="row">
+            <div class="col-sm">
+                <label asp-for="DishName">Name</label>
+                <span asp-validation-for="DishName"></span>
+                <input asp-for="DishName" type="text" value="@Model.DishName"><br><br>
+
+                <label asp-for="Chef">Chef</label>
+                <span asp-validation-for="Chef"></span>
+                <input asp-for="Chef" type="text" value="@Model.Chef"><br><br>
+
+                <label asp-for="Tastiness">Tastiness</label>
+                <span asp-validation-for="Tastiness"></span>
+                <input asp-for="Tastiness" type="text" value="@Model.Tastiness"><br><br>
+
+                <label asp-for="Calories"></label>
+                <span asp-validation-for="Calories"></span>
+                <input asp-for="Calories" type="text" value="@Model.Calories"><br><br>
+
+                <label asp-for="Description">Description</label><br>
+                <span asp-validation-for="Description"></span>
+                <textarea asp-for="Description" name="Description" value="@Model.Description"></textarea><br>
+                <input type="submit" value="submit">
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+
+</html>

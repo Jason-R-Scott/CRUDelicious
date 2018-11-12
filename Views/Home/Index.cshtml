@@ -1,0 +1,61 @@
+@using CRUDelicious.Models
+@model IEnumerable<Dish>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-compatible' content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>CRUDelicious</title>
+</head>
+<style>
+    .col-4{
+        background-color: green;
+        border: solid 1px darkgray;
+        border-radius: 15px;
+        padding:15px;
+        color: wheat;
+    }
+    h1{
+        margin: 15px;
+    }
+    .last{
+        border-bottom:solid 1px black;
+    }
+    .dishchef{
+        color:darkblue;
+    }
+    a {
+        color: white;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <h1>Welcome To CRUDelicious</h1>
+        <div class="row">
+            <div class="col-4">
+                <h5>Check out some recent dishes!</h5><br>
+
+                @foreach (var dish in @Model)
+                {
+                <a href="/@dish.Id">@dish.DishName</a>
+                <p class="dishchef"> by @dish.Chef</p>
+                <p class="last">@dish.UpdatedAt </p> 
+                }
+                
+            </div>
+            <div class="col-8">
+                <a href="/New" class="btn btn-success">Add a Dish</a>
+            </div>
+          </div>
+    </div>
+</body>
+
+</html>

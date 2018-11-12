@@ -1,0 +1,49 @@
+@using CRUDelicious.Models
+@model Dish
+@{
+    ViewData["Title"] = "Show Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-compatible' content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>CRUDelicious</title>
+</head>
+<style>
+.col-sm{
+    background-color: green;
+    border: solid 1px darkgray;
+    border-radius: 15px;
+    padding:15px;
+    color: wheat;
+    margin: 10px;
+    height: 300px;
+}
+.break{
+    border-bottom: solid 1px darkgray;
+}
+</style>
+
+<body>
+    <div id="container">
+
+        <h1>@Model.DishName</h1>
+        <h5 class="break">@Model.Chef</h5>
+        <p>@Model.Description</p>
+        <p>@Model.Calories</p>
+        <p>@Model.Tastiness</p>
+
+        <a href="/Edit/@Model.Id">Edit</a>
+        <br>
+        <a href="/Delete/@Model.Id">Delete</a>
+        <br>
+        <a href="/">Home</a>
+    </div>
+</body>
+
+</html>
